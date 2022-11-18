@@ -1,0 +1,100 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - request
+  - typeofwork
+  - dayscount
+  - bot_challenge
+  - addinto
+  - newid
+  - newname
+  - newemail
+  
+  
+entities:
+  - empid
+  
+slots:
+  empid:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: empid
+      
+actions:
+  - action_hello
+  - action_assign
+  - action_days
+  - action_newadd
+  - action_newname
+  - action_newemail
+
+responses:
+  utter_greet:
+  - text: "can you tell your empid and empid you want to assign work"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  utter_helloempid:
+  - text: |
+        Nice to meet you {person1}
+        You want to assign work for {person2}
+        can you tell type of work you want to assign..?
+  
+  utter_worktrue:
+  - text: |
+        You assigned the work {worktrue}
+        can you tell the no of days to complete the work?
+        
+  utter_conforim:
+  - text: "Sucessfully task assigned"
+  
+  utter_noofdays:
+  - text: "Can you tell the due date of this work?"
+  
+  utter_sayempid:
+  - text: "Can you tell the empid you want to add into the database?"
+  
+  utter_updatedid:
+  - text: |
+        New Empid is {newid1}
+        can you the empname..?
+  
+  utter_updatedname:
+  - text: |
+        New Empname is {newname1}
+        can you tell the email...?
+        
+  utter_updatednewemail:
+  - text: |
+        New Email is {newemail1}
+        sucessfully updated data
+        
+  utter_workdate:
+  - text: |
+        End Date for the task is {workdate}
+        Sucessfully task assigned
+
+  
+   
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
